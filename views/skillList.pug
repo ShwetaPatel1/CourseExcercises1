@@ -1,0 +1,23 @@
+extends parentLayout
+block mainContent
+    .main
+        div
+            h1 List of all #{listName}
+            p you can search from the list
+            form(action="/skillList/submit" method="get")
+                input(type="text", name="skillName")#name
+                button(type="submit") Search
+        div
+            img(src="images/skill_1.jpg" style="width:150px;")  
+            <h3> skill1
+            <p> Something about this  skill
+            hr
+            img(src="images/skill_1.jpg" style="width:150px;")  
+            <h3> skill1
+            <p> Something about this  skill
+            hr
+            img(src="images/skill_1.jpg" style="width:150px;")  
+            <h3> skill1
+            <p> Something about this  skill
+            hr
+            

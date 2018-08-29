@@ -1,0 +1,7 @@
+extends parentLayout
+block mainContent
+    div 
+        h1=title
+        each item in docList
+            .skillItem
+                h3= item.name

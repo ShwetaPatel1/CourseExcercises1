@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Jade</title>
+    <script type="text/javascript">
+     function openForm() {
+    document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+}
+    </script>
+  </head>
+  <body>
+    <h1>title</h1>
+    <div id="container">
+        <button type="button" onclick="openForm()">Get an Appointment</button>
+     <form action="closeForm()" >
+        <h1>Appointment Form</h1>
+         First Name : <input type="text" name="firstName" placeholder="first name" required>
+         Last Name : <input type="text" name="lastName" placeholder="Last name" required>
+         email : <input type="text" name="email" placeholder="email" required>
+         Date : <input type="datetime-local">
+         Do you want us to remind you by an emial for this appointment before one day? <input type="checkbox" name="remind">
+         <button type="submit" name="submit">Book Appointment</button>
+     </form>
+    </div>
+  </body>
+</html>

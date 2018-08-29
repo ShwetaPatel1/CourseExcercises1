@@ -1,0 +1,38 @@
+extends ./parentLayout.pug
+block pageScript
+    script.
+        var i = 0;
+        var txt = 'Yes, You are at right place!!!';
+        var speed = 50;
+        function typeWriter() {
+        if (i < txt.length) {
+        document.getElementById("lowerText").innerHTML += txt.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+        }
+        }
+
+block mainContent
+    .mainHome
+        .container
+            img.image(src='./images/design/bg_pencilPaperHand.jpg', alt='Skill Locate' onmouseover='typeWriter()')
+            .overlayTop
+                .textTop 
+                    ul
+                        li
+                            | Want to 
+                            span locate 
+                            | some classes to sharpen your 
+                            span skills 
+                            | in your free time?
+                        li Want to become a 
+                            span trainer/coach 
+                            | in your area of experties?
+                        li Are you a 
+                            span material supplier
+                            | looking for potential customers?
+            #lowerText.overlayBottom
+                .textBottom 
+                    |You are at 
+                    | right
+                    |place!!!

@@ -1,0 +1,23 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    link(rel='stylesheet', href='./stylesheets/style.css')
+    link(rel='shortcut icon', href='./images/design/favicon.ico', type='image/x-icon')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title=title
+    block pageScript
+  body
+    div.topBar
+      | Login
+    .menuNav
+      .logoDiv
+        img(src='./images/design/skillLocateLogoPinned.png' onclick='/home')
+      a.active(href='/home') HOME
+      a(href='/features') FEATURES
+      a(href='/skillList') FOR YOU
+      a(href='/testimonials') TESTIMONIALS
+      a(href='/skillList/addSkill') ADMIN
+    block mainContent
+    .footerWrapper
+      p © 2018 SkillLocate. All rights are reserved.
