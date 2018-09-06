@@ -1,23 +1,67 @@
 extends parentLayout
+block pageScript
+    script(src='./javascripts/skillList_client.js')
+    style.
+        li img{
+            width:150px;
+            border: 1px solid black;
+        }
+        .left{
+            float:left;
+        }
+        .right{
+            float:right;
+        }
+        .bar{
+            border: 2px double darkblue;
+            margin: 10px;
+            width: 100%;
+        }
+        #categoryList, #instituteList
+        {
+            display: none; /* Hidden by default  */
+           
+            margin-left:auto;
+            margin-right:auto;
+            width: 60%; /* Full width */
+            height: auto; /* Full height */
+            padding-top:30px;
+            border: 0.5px solid grey;
+            box-shadow: 0 8px 8px 0 #ddd;
+            text-align: center;
+        }
+       
 block mainContent
     .main
         div
-            h1 List of all #{listName}
-            p you can search from the list
-            form(action="/skillList/submit" method="get")
-                input(type="text", name="skillName")#name
-                button(type="submit") Search
-        div
-            img(src="images/skill_1.jpg" style="width:150px;")  
-            <h3> skill1
-            <p> Something about this  skill
-            hr
-            img(src="images/skill_1.jpg" style="width:150px;")  
-            <h3> skill1
-            <p> Something about this  skill
-            hr
-            img(src="images/skill_1.jpg" style="width:150px;")  
-            <h3> skill1
-            <p> Something about this  skill
-            hr
-            
+            h3 List of all Skills
+            div
+                input(type="text", name="skillName" placeholder="search for categories, skills and trainers of skills")#name
+                button(type="submit" onclick="filterSkills()" ) Search
+            div.right
+                a(href="#categoryList" onclick="showCategoryList()" class="anchorBlock") Categories
+        br
+        hr.bar
+        #skillOrderedList
+            br
+            h2 Skill Classes to choose from
+            each item in itemList
+               +skillClass(item)
+        #categoryList
+            h3 List of All Categories
+            div
+                table
+                    tr
+                        th ID
+                        th Category Name
+                        th Select
+                        each categoryItem in categoryList
+                            tr
+                                td #{categoryItem.id}
+                                td #{categoryItem.name}
+                                td 
+                                    -var chk_id = categoryItem.id
+                                    input(type="checkbox", name="chk_id" id=chk_id)
+                button.anchorBlock(onclick="document.getElementById('categoryList').style.display='none'") Hide
+
+                        

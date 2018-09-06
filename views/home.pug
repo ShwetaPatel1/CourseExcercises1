@@ -2,12 +2,12 @@ extends ./parentLayout.pug
 block pageScript
     script.
         var i = 0;
-        var txt = 'Yes, You are at right place!!!';
-        var speed = 50;
+        var txt = ' You are at right place!!!';
+        var speed = 100;
         function typeWriter() {
         if (i < txt.length) {
-        document.getElementById("lowerText").innerHTML += txt.charAt(i);
-        i++;
+        document.getElementById("bottomText").innerHTML += (txt.charAt(i)+ txt.charAt(i+1));
+        i=i+2;
         setTimeout(typeWriter, speed);
         }
         }
@@ -33,6 +33,4 @@ block mainContent
                             | looking for potential customers?
             #lowerText.overlayBottom
                 .textBottom 
-                    |You are at 
-                    | right
-                    |place!!!
+                    | You are at right place!!!

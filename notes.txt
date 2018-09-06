@@ -1,0 +1,15 @@
+node.js
+express
+views - PUG template - layout and mixins, dynamic data rendered using loops
+Routes - controls and redirects the requests and handles responses
+models - database interaction layers
+module.exports - to interact among layers and reuse the code and configs
+configuration file - application variables like database configuration and email configuration 
+public - contains all assets like images, favicon.ico, stylesheets, js files, etc
+database - mySQL and mongoDB (relational and no-sql) - select, insert, delete, update, index, primary key, FK, JOIN
+requests - GET and PUT
+CSS - sass preprocessor
+AJAX - update searched list without reloading the page
+NPM modules - npm-Scheduler and emailjs - to send emails on specific time 
+ER Diagram - Entity - relationship diagram
+CRUD operations - institues Page is used to demonstrate all this operations to database

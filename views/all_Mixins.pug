@@ -1,0 +1,14 @@
+mixin skillClass(item)
+    div.skillItem
+     - var img = item.image1
+            div.skillImgContainer
+                img(src=img )
+            h3  
+                a(href="#" onclick="selectSkillClass()") #{item.skillName}
+            hr 
+            br
+            p Category : #{item.categoryName}
+            p Trainer : #{item.trainerName}
+            p Duration : #{item.duration}
+            p Total Seats : #{item.seats}
+            

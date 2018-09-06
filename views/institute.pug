@@ -1,0 +1,83 @@
+extends parentLayout
+block pageScript
+  script(src='./javascripts/skillList_client.js')
+  style.
+      * {
+      font-family: Georgia;
+      }
+      #formContainer {
+      z-index: 1;
+      width: 700px;
+      height: 500px;
+      vertical-align: middle;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 30px;
+      border: 0.5px solid yellow;
+      box-shadow: 0 8px 8px 0 rgba(221, 224, 18, 0.6);
+      }
+      #formContainer h1 {
+      text-align: center;
+      color: darkBlue;
+      }
+      input[type="text"] {
+      width: 100%;
+      margin-bottom: 20px;
+      height: 25px;
+      border-radius: 8px;
+      }
+      button {
+      width: 100%;
+      height: 30px;
+      display: block;
+      margin-top: 10px;
+      }
+block mainContent
+  .main
+    div
+      div.left
+        h3 Registered Institutes
+      div.right
+          a(href="#" onclick="showInstituteList()" class="anchorBlock") Institutes
+      br
+      hr.bar
+    #formContainer
+      form(action='closeForm()', hidden)
+        h1 New Institute
+        br
+        input(type='text', name='name', placeholder='Institute Name', required='')
+        br
+        input(type='text', name='address', placeholder='Address', required='')
+        br
+        input(type='text', name='postalCode', placeholder='postal code', required='')
+        br
+        input(type='text', name='city', value='SASKATOON', required='', disabled='')
+        br
+        input(type='text', name='country', value='CANADA', required='', disabled='')
+        br
+        input(type='text', name='phoneNumber', placeholder='Phone Number', required='')
+        br
+        |  Child-minding available ? 
+        input(type='checkbox', name='remind')
+        br
+        button(type='submit', name='submit') Add Institute
+        br
+    #instituteList
+      h3 List of All Institutes
+      div
+        table
+          tr
+            th ID
+            th Institute Name
+            th Address
+            th Postal Code
+            th Phone Number
+            each instituteItem in instituteList
+                tr
+                    td #{instituteItem.id}
+                    td #{instituteItem.name}
+                    td #{instituteItem.address}
+                    td #{instituteItem.postalCode}
+                    td #{instituteItem.phone}
+            button.anchorBlock(onclick="document.getElementById('instituteList').style.display='none'") Hide
+      

@@ -3,10 +3,10 @@ var config = require('../configuration/config');
 var pool = mysql.createPool(config.MySQL_db);
 
 module.exports = {
-    selectAllInstitutes: function (passData) {
+    selectAllCategories: function (passData) {
 
         var queryResult;
-        pool.query("SELECT * FROM skilllocatedatabase.institute where city = 'SASKATOON'", function (err, result) {
+        pool.query("SELECT * FROM skilllocatedatabase.category", function (err, result) {
             if (err) throw err;
             passData(result);
         });
@@ -14,10 +14,10 @@ module.exports = {
         return queryResult;
     },
 
-    selectInstituteNames: function (passData) {
+    selectCategoryNames: function (passData) {
 
         var queryResult;
-        pool.query("SELECT NAME FROM skilllocatedatabase.institute where city = 'SASKATOON'", function (err, result) {
+        pool.query("SELECT NAME FROM skilllocatedatabase.category ", function (err, result) {
             if (err) throw err;
             passData(result);
         });

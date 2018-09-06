@@ -1,3 +1,4 @@
+include ./all_Mixins.pug
 doctype html
 html(lang='en')
   head
@@ -9,7 +10,7 @@ html(lang='en')
     block pageScript
   body
     div.topBar
-      | Login
+      a(href='/login') Login
     .menuNav
       .logoDiv
         img(src='./images/design/skillLocateLogoPinned.png' onclick='/home')

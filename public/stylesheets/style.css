@@ -10,29 +10,13 @@ body {
   font-weight: 400;
 }
 
+ul, ol, li, p, div, input
+{
+  color: inherit;
+}
+
 a {
   color: #00B7FF;
-}
-
-.skillListContainer
-{
-  margin-left:40px;
-  width: 100%;
-  height: auto;
-  overflow-x: auto;
-}
-
-.skillItem
-{
-  color: darkblue;
-  float: left;
-  margin-top: 20px;
-}
-.skillItem > img
-{
-  width: 200px;
-  border: 1px solid black;
-  float: left;
 }
 
 /*********************************ex-style.css******************************/
@@ -50,14 +34,10 @@ a {
 /* rgb(221, 173, 17) - yellow
   rgb(11, 11, 11) - blue
   white */
-
-  span,strong
-  {
-    background-color: transparent;
-  }
   
   ::placeholder {
     color: grey;
+    font-size: small;
     opacity: 0.5; /* Firefox */
   }
   
@@ -160,7 +140,7 @@ a {
 }
 
 .main {
-    margin-top: 50px; 
+    margin-top: 90px; 
     padding: 10px 10px;
     background-image:  url("../images/design/bg_Vbar.png");
     background-repeat: repeat-y;
@@ -265,8 +245,10 @@ a {
   bottom: 100%;
   left: 0;
   right: 0;
-  background-color: rgb(254,181,44);
-  opacity:0.8;
+  /* background-color: rgb(254,181,44); */
+/*  background: radial-gradient(black, grey, black) ; */
+  background: radial-gradient(rgb(254, 222, 45),rgb(254, 222, 45),rgb(70,70,70)) ;
+  opacity:0.7;
   overflow: hidden;
   width: 100%;
   height:0;
@@ -278,9 +260,10 @@ a {
   height: 50%;
 }
 
-.textTop {
-  color:black;
-  font-size: 20pt;
+.textTop{
+  color: black;
+  font-weight: bold;
+  font-size: 16pt;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -301,7 +284,7 @@ a {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgb(0,98,199);
+  background: radial-gradient(rgb(70,70,100),  rgb(0,98,199)) ;
   opacity: 0.6;
   overflow: hidden;
   width: 100%;
@@ -388,4 +371,108 @@ a {
     margin: 0;
     padding: 14px;
   }
+}
+/***********************************skillList page CSS ***************************/
+.anchorBlock{
+  float: left;
+  padding: 8px 15px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  color: rgb(254,181,44);
+  display: block;
+  background-color: #1180db;
+  opacity:0.8;
+  transition: 0.2s ease-out;
+  font-family: "calibri";
+  font-stretch: expanded;
+}
+.anchorBlock:hover{
+  opacity: 1;
+}
+
+/****************************Table CSS style*****************************************/
+table {
+  font-family: "Georgia", sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  background-color :white;
+}
+
+table td, table th {
+  border: 1px solid darkblue;
+  padding: 8px;
+}
+
+table tr:nth-child(even){background-color: #ccdcf5;}
+
+table tr:hover {background-color: rgb(168, 229, 248);}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color :rgb(221, 173, 17);
+  color: rgb(85, 100, 241);
+}
+/**********************************Table CSS end********************************/
+.skillItem{
+  display: inline-block;
+  width:200px;
+  max-height: 400px;
+  padding:20px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 1px #aaa;
+  font-family: calibri;
+  margin: 10px;
+  background: white;
+}
+.skillItem hr
+{
+  width: 50px;
+  float: left;
+  border: 2px solid darkblue;
+  opacity:0.6;
+}
+.skillItem hr:hover{
+  border: 2px solid blue;
+  opacity:1;
+}
+.skillItem img{
+  flex-shrink:0;
+  -webkit-flex-shrink: 0;
+  width:90%;
+  max-height:90%;
+  border: 1px solid #ddd;
+}
+
+.skillImgContainer {
+  width: 200px;
+  height: 120px;
+}
+/********************Remove******************************/
+.skillListContainer_old
+{
+  margin-left:40px;
+  width: 100%;
+  height: auto;
+  overflow-x: auto;
+}
+
+.skillItem_old
+{
+  color: darkblue;
+  float: left;
+  margin-top: 20px;
+}
+skillItem_old img
+{
+  flex-shrink:0;
+  -webkit-flex-shrink: 0;
+  max-width:70%;
+  max-height:90%;
+  border: 2px solid black;
 }
