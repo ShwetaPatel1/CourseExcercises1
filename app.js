@@ -5,10 +5,12 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var scheduler = require('./routes/reminderEmail');
 
+
 //Use of exported routers
 var indexRouter = require('./routes/index');
 var loginRouter = require('./routes/login1');
 var usersRouter = require('./routes/users');
+var instituteRouter = require('./routes/institutes');
 var testimonialsRouter = require('./routes/testimonials');
 var skillListRouter = require('./routes/skillList');
 
@@ -26,12 +28,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/skillList',skillListRouter);
-app.use('/skillList/addSkill',skillListRouter);
-app.use('/skillList/skill',skillListRouter);
-app.use('/login',loginRouter);
-app.use('/testimonials',testimonialsRouter);
+app.use('/institutes', instituteRouter);
+app.use('/skillList', skillListRouter);
+app.use('/skillList/skill', skillListRouter);
+app.use('/login', loginRouter);
+app.use('/testimonials', testimonialsRouter);
 
+
+//routes for static HTML with no dynamic data
 app.get('/home', (req, res) => {
   res.render('home', { title: 'Home Page' });
 });
@@ -40,17 +44,13 @@ app.get('/features', (req, res) => {
   res.render('features', { title: 'Why us?' });
 });
 
-app.get('/skillSearch', (req, res) => {
-  res.render('home', { title: 'Home Page' });
-});
-
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -61,7 +61,7 @@ app.use(function(err, req, res, next) {
 });
 
 
-// FB.getLoginStatus(function(response) {
+// FB.getLoginStatus(function (response) {
 //   statusChangeCallback(response);
 // });
 
