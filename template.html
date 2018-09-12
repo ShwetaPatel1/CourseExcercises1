@@ -1,30 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Jade</title>
-    <script type="text/javascript">
-     function openForm() {
-    document.getElementById("myForm").style.display = "block";
-}
 
-function closeForm() {
-    document.getElementById("myForm").style.display = "none";
-}
-    </script>
-  </head>
-  <body>
-    <h1>title</h1>
-    <div id="container">
-        <button type="button" onclick="openForm()">Get an Appointment</button>
-     <form action="closeForm()" >
-        <h1>Appointment Form</h1>
-         First Name : <input type="text" name="firstName" placeholder="first name" required>
-         Last Name : <input type="text" name="lastName" placeholder="Last name" required>
-         email : <input type="text" name="email" placeholder="email" required>
-         Date : <input type="datetime-local">
-         Do you want us to remind you by an emial for this appointment before one day? <input type="checkbox" name="remind">
-         <button type="submit" name="submit">Book Appointment</button>
-     </form>
-    </div>
-  </body>
+<head>
+  <title>Jade</title>
+  <script type="text/javascript">
+    function openForm() {
+      document.getElementById("myForm").style.display = "block";
+    }
+
+    function closeForm() {
+      document.getElementById("myForm").style.display = "none";
+    }
+  </script>
+  <style>
+    * {
+      font-family: Georgia;
+    }
+
+    #formContainer {
+      z-index: 1;
+      width: 700px;
+      height: 500px;
+      vertical-align: middle;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 30px;
+      border: 0.5px solid yellow;
+      box-shadow: 0 8px 8px 0 rgba(221, 224, 18, 0.6);
+    }
+
+    #formContainer h1 {
+      text-align: center;
+      color: darkBlue;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      margin-bottom: 20px;
+      height: 25px;
+      border-radius: 8px;
+    }
+
+    button {
+      width: 100%;
+      height: 30px;
+      display: block;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="formContainer">
+    <form action="closeForm()">
+      <h1>New Institute</h1>
+      <br>
+      <input type="text" name="name" placeholder="Institute Name" required><br>
+      <input type="text" name="address" placeholder="Address" required><br>
+      <input type="text" name="postalCode" placeholder="postal code" required><br>
+      <input type="text" name="city" value="SASKATOON" required disabled><br>
+      <input type="text" name="country" value="CANADA" required disabled><br>
+      <input type="text" name="phoneNumber" placeholder="Phone Number" required><br> Child-minding available ? <input type="checkbox"
+        name="remind"><br>
+      <button type="submit" name="submit">Add Institute</button><br>
+    </form>
+  </div>
+</body>
+
 </html>

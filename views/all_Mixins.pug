@@ -1,14 +1,32 @@
+//- mixin for a skill Class div Item
 mixin skillClass(item)
-    div.skillItem
-     - var img = item.image1
+    - var img = item.image1
+    - var id = item.id
+        div.skillItem(onclick="selectSkillClass("+id+")")
             div.skillImgContainer
                 img(src=img )
             h3  
-                a(href="#" onclick="selectSkillClass()") #{item.skillName}
+                a(href="#" onclick="selectSkillClass(event)") #{item.skillName}
             hr 
             br
             p Category : #{item.categoryName}
             p Trainer : #{item.trainerName}
             p Duration : #{item.duration}
             p Total Seats : #{item.seats}
-            
+            p#p_id(hidden) #{item.id}
+//-mixin for Categories-table row         
+mixin categoryRow(categoryItem)
+    tr
+        td #{categoryItem.id}
+        td #{categoryItem.name}
+        td 
+            -var chk_id = categoryItem.id
+            input(type="checkbox", name="chk_id" id=chk_id)
+
+mixin instituteRow(instituteItem)
+    tr
+        td #{instituteItem.id}
+        td #{instituteItem.name}
+        td #{instituteItem.address}
+        td #{instituteItem.postalCode}
+        td #{instituteItem.phone}

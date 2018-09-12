@@ -7,12 +7,14 @@ var scheduler = require('./routes/reminderEmail');
 
 
 //Use of exported routers
-var indexRouter = require('./routes/index');
+//var indexRouter = require('./routes/index');
 var loginRouter = require('./routes/login1');
 var usersRouter = require('./routes/users');
 var instituteRouter = require('./routes/institutes');
+var categoryRouter = require('./routes/categories');
 var testimonialsRouter = require('./routes/testimonials');
 var skillListRouter = require('./routes/skillList');
+var appointmentRouter = require('./routes/appointment');
 
 var app = express();
 
@@ -26,18 +28,21 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+//app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/institutes', instituteRouter);
 app.use('/skillList', skillListRouter);
+app.use('/categories', categoryRouter);
 app.use('/skillList/skill', skillListRouter);
 app.use('/login', loginRouter);
 app.use('/testimonials', testimonialsRouter);
+app.use('/appointment', appointmentRouter);
 
 
 //routes for static HTML with no dynamic data
-app.get('/home', (req, res) => {
+app.get('/', (req, res) => {
   res.render('home', { title: 'Home Page' });
+  res.end();
 });
 
 app.get('/features', (req, res) => {

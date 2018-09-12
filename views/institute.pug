@@ -24,10 +24,10 @@ block pageScript
       width: 100%;
       margin-bottom: 20px;
       height: 25px;
-      border-radius: 8px;
+      border-radius: 4px;
       }
       button {
-      width: 100%;
+      width: 100px;
       height: 30px;
       display: block;
       margin-top: 10px;
@@ -37,12 +37,22 @@ block mainContent
     div
       div.left
         h3 Registered Institutes
-      div.right
-          a(href="#" onclick="showInstituteList()" class="anchorBlock") Institutes
       br
       hr.bar
+    #instituteList
+      h3 List of All Institutes
+      div
+        table
+          tr
+            th ID
+            th Institute Name
+            th Address
+            th Postal Code
+            th Phone Number
+            each instituteItem in instituteList
+                +instituteRow(instituteItem)
     #formContainer
-      form(action='closeForm()', hidden)
+      form(action='addInstitute()')
         h1 New Institute
         br
         input(type='text', name='name', placeholder='Institute Name', required='')
@@ -62,22 +72,5 @@ block mainContent
         br
         button(type='submit', name='submit') Add Institute
         br
-    #instituteList
-      h3 List of All Institutes
-      div
-        table
-          tr
-            th ID
-            th Institute Name
-            th Address
-            th Postal Code
-            th Phone Number
-            each instituteItem in instituteList
-                tr
-                    td #{instituteItem.id}
-                    td #{instituteItem.name}
-                    td #{instituteItem.address}
-                    td #{instituteItem.postalCode}
-                    td #{instituteItem.phone}
-            button.anchorBlock(onclick="document.getElementById('instituteList').style.display='none'") Hide
+    
       

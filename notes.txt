@@ -13,3 +13,7 @@ AJAX - update searched list without reloading the page
 NPM modules - npm-Scheduler and emailjs - to send emails on specific time 
 ER Diagram - Entity - relationship diagram
 CRUD operations - institues Page is used to demonstrate all this operations to database
+
+External references : Codepen, HTML2Jade, Random Name generator for dummy trainer names,
+             csv to JSON creator(while trying mongoDB - insertMany ), google>>images >> tools, 
+             w3Schools, npm Runkit, stackOverflow for error resolution, slack for live solution to questions and you all. 

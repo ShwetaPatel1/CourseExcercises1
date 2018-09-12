@@ -1,28 +1,111 @@
-doctype html
-html(lang='en')
-  head
-    title=title
-    script(type='text/javascript').
-      function openForm() {
-      document.getElementById("myForm").style.display = "block";
-      }
-      function closeForm() {
-      document.getElementById("myForm").style.display = "none";
-      }
-  body
-    h1=title
-    #container
-      button(type='button', onclick='openForm()') Get an Appointment
-      form(action='closeForm()')
+extends parentLayout
+block pageScript
+    script(src='/javascripts/skillList_client.js')
+    script.
+          var d_min = new Date();
+          var d_max = new Date();
+          d_min.setDate(d_min.getDate() + 1);
+          d_max.setDate(d_min.getDate() + 30);
+
+          document.onload = function(){
+            var date = new Date();
+            var day = date.getDate() + 1; //tomorrow's date
+            var month = date.getMonth() + 1;
+            var year = date.getFullYear();
+
+            if (month < 10) month = "0" + month;
+            if (day < 10) day = "0" + day;
+
+            var today = year + "-" + month + "-" + day;       
+            document.getElementById("dateTime").value = today;
+                      }
+    style.
+    head
+      title=title
+
+block mainContent
+  .mainHome
+    - var img1 = "/"+skillClass[0].image1
+    - var img2 = "/"+skillClass[0].image2
+    - var img3 = "/"+skillClass[0].image3
+
+    div.skillItem-Container
+      .slideshow-container
+        .mySlides.fade(style='display:block')
+          .numbertext 1 / 3
+          .imgBox
+            img(src=img1, style='width:100%')
+        .mySlides.fade(style='display:none')
+          .numbertext 2 / 3
+          .imgBox
+            img(src=img2, style='width:100%')
+        .mySlides.fade(style='display:none')
+          .numbertext 3 / 3
+          .imgBox
+            img(src=img3, style='width:100%')
+            //- Next and previous buttons
+        br
+          //- The dots/circles
+        div(style='text-align:center')
+          span.dot(onclick='currentSlide(1)' class='active')
+          span.dot(onclick='currentSlide(2)')
+          span.dot(onclick='currentSlide(3)')
+        br
+      div.skill-details
+        div(style='width:100%')
+          p
+            strong #{skillClass[0].skillName}
+          hr
+          p #{skillClass[0].description}
+          hr
+          div.skill-details-left
+            p#id(hidden) #{skillClass[0].skillId}
+            p Category : #{skillClass[0].categoryName}
+            p Trainer : #{skillClass[0].trainerName}
+            p Duration : #{skillClass[0].duration}
+            p Total Seats : #{skillClass[0].seats}
+            p Fees : $100 (This is static value ;) )
+          div.skill-details-right
+            p Institute : #{skillClass[0].name}
+            p Address : #{skillClass[0].address}
+            p Postal Code : #{skillClass[0].postalCode}
+            p City : #{skillClass[0].city}, #{skillClass[0].province}, #{skillClass[0].country}
+            p Phone Number : #{skillClass[0].phone}
+        div(style='width:100%')
+          button(type='button', onclick='openForm()') Get an Appointment
+
+    #form_container(style="display:none")
+      form(action='', name="appointmentForm")
         h1 Appointment Form
-        |          First Name : 
-        input(type='text', name='firstName', placeholder='first name', required='')
-        |          Last Name : 
-        input(type='text', name='lastName', placeholder='Last name', required='')
-        |          email : 
-        input(type='text', name='email', placeholder='email', required='')
-        |          Date : 
-        input(type='datetime-local')
-        |          Do you want us to remind you by an emial for this appointment before one day? 
-        input(type='checkbox', name='remind')
-        button(type='submit', name='submit') Book Appointment
+        .row
+          .col-25  First Name :
+          .col-75
+            input(type='text', name='firstName', placeholder='first name', required='')
+        .row
+          .col-25 Last Name :
+          .col-75
+            input(type='text', name='lastName', placeholder='Last name', required='')
+        .row
+          .col-25 Phone Number :
+          .col-75
+            input(type='text', name='phone', placeholder='phone number', required='')
+        .row
+          .col-25 email :
+          .col-75
+            input(type='text', name='email', placeholder='email', required='')
+        .row
+          .col-25  Date :
+          .col-75
+            input(type='datetime-local', name="dateTime", min=d_min, max=d_max, onChange='showTime(event)', required)
+            span(class="validity")
+        .row
+          |  Do you want us to remind you by an emial for this appointment before one day?
+
+          input(type='checkbox', name='remind' checked)
+        .row
+          .col-25
+            label(for='subject') Subject
+          .col-75
+            textarea#subject(name='subject', placeholder='Write something..', style='height:200px')
+        .row
+          button(type='button', name='submit', onClick="bookAppointment()" ) Book Appointment

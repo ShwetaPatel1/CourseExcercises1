@@ -1,0 +1,14 @@
+extends parentLayout
+block mainContent
+    title=title
+    .mainHome
+        #categoryList
+                h3 List of All Categories
+                div
+                    table
+                        tr
+                            th ID
+                            th Category Name
+                            th Select
+                            each categoryItem in categoryList
+                                +categoryRow(categoryItem)

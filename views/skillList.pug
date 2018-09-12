@@ -17,29 +17,20 @@ block pageScript
             margin: 10px;
             width: 100%;
         }
-        #categoryList, #instituteList
+        search
         {
-            display: none; /* Hidden by default  */
-           
-            margin-left:auto;
-            margin-right:auto;
-            width: 60%; /* Full width */
-            height: auto; /* Full height */
-            padding-top:30px;
-            border: 0.5px solid grey;
-            box-shadow: 0 8px 8px 0 #ddd;
-            text-align: center;
+            width:600px;
         }
        
 block mainContent
     .main
         div
             h3 List of all Skills
-            div
-                input(type="text", name="skillName" placeholder="search for categories, skills and trainers of skills")#name
-                button(type="submit" onclick="filterSkills()" ) Search
-            div.right
-                a(href="#categoryList" onclick="showCategoryList()" class="anchorBlock") Categories
+            div.col-75
+                div.col-75
+                    input(type="text", name="skillName" onChange="filterSkills()" placeholder="search for categories, skills and trainers of skills")#name
+                div.col-25.left
+                    button(type="submit" onclick="filterSkills()" ) Search
         br
         hr.bar
         #skillOrderedList
@@ -47,21 +38,4 @@ block mainContent
             h2 Skill Classes to choose from
             each item in itemList
                +skillClass(item)
-        #categoryList
-            h3 List of All Categories
-            div
-                table
-                    tr
-                        th ID
-                        th Category Name
-                        th Select
-                        each categoryItem in categoryList
-                            tr
-                                td #{categoryItem.id}
-                                td #{categoryItem.name}
-                                td 
-                                    -var chk_id = categoryItem.id
-                                    input(type="checkbox", name="chk_id" id=chk_id)
-                button.anchorBlock(onclick="document.getElementById('categoryList').style.display='none'") Hide
-
-                        
+                  

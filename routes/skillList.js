@@ -14,7 +14,7 @@ router.get('/', function (req, res, next) {
     });
 
     skillClass.selectAll(function (skillList) {
-        res.render('skillList', { itemList: skillList, categoryList: categoryList });
+        res.render('skillList', { itemList: skillList });
         res.end();
     });
 
@@ -34,11 +34,11 @@ function prepareSkillItem_HTMLResponse(itemList) {
     let htmlResponse = "";
     if (itemList.length === 0 || itemList === 'undefined') {
         htmlResponse += "<br><h4>Such skill classes are not available. </h4>";
-    }
+    } //<div class="skillItem" onclick="selectSkillClass(3)">
     else {
         htmlResponse += "<br>";
         itemList.forEach(item => {
-            htmlResponse += '<div class="skillItem"><div class="skillImgContainer">';
+            htmlResponse += '<div class="skillItem" onclick="selectSkillClass(' + item.id + ')"><div class="skillImgContainer">';
             htmlResponse += '<img src="' + item.image1 + '"></div>';
             htmlResponse += '<h3><a href="#" onclick="selectSkillClass()">' + item.skillName + '</a></h3><hr><br>';
             htmlResponse += '<p>Category : ' + item.categoryName + '</p>';

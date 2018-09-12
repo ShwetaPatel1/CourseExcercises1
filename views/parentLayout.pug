@@ -3,8 +3,8 @@ doctype html
 html(lang='en')
   head
     meta(charset='utf-8')
-    link(rel='stylesheet', href='./stylesheets/style.css')
-    link(rel='shortcut icon', href='./images/design/favicon.ico', type='image/x-icon')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='shortcut icon', href='/images/design/favicon.ico', type='image/x-icon')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     title=title
     block pageScript
@@ -13,12 +13,13 @@ html(lang='en')
       a(href='/login') Login
     .menuNav
       .logoDiv
-        img(src='./images/design/skillLocateLogoPinned.png' onclick='/home')
-      a.active(href='/home') HOME
+        img(src='/images/design/skillLocateLogoPinned.png' onclick="")
+      a.active(href='/') HOME
       a(href='/features') FEATURES
       a(href='/skillList') FOR YOU
+      a(href='/institutes') INSTITUTES
+      a(href='/categories') CATEGORIES
       a(href='/testimonials') TESTIMONIALS
-      a(href='/skillList/addSkill') ADMIN
     block mainContent
     .footerWrapper
       p © 2018 SkillLocate. All rights are reserved.

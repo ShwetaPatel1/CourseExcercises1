@@ -6,18 +6,15 @@ var pool = mysql.createPool(config.MySQL_db);
 module.exports = {
     selectAll: function (passData) {
 
-        var queryResult;
         pool.query("SELECT  a.*, b.name as categoryName FROM skillclass a INNER JOIN category b ON a.category_id = b.id", function (err, result) {
             if (err) throw err;
             passData(result);
         });
 
-        return queryResult;
     },
 
     selectFiltered: function (filterStr, passData) {
 
-        var queryResult;
         var qry = "SELECT  a.*, b.name as categoryName FROM skillclass a INNER JOIN category b ON a.category_id = b.id" +
             " where b.name like '%" + filterStr + "%'  or a.skillname like '%" + filterStr + "%' or a.trainerName like '%" + filterStr + "%'";
         pool.query(qry, function (err, result) {
@@ -25,12 +22,17 @@ module.exports = {
             passData(result);
         });
 
-        return queryResult;
+    },
+
+    getSkill: function (id, passData) {
+
+        var qry = "SELECT a.id as skillId, a.*, b.name as categoryName, c.* FROM ((SkillClass a INNER JOIN Category b ON a.Category_id = b.id) INNER JOIN Institute c ON a.Institute_id = c.id) " +
+            " where a.id ='" + id + "'";
+        pool.query(qry, function (err, result) {
+            if (err) throw err;
+            passData(result);
+        });
+
     }
 };
-
-//"INSERT INTO `skilllocatedatabase`.`skillclass` (`id`,`skillName`,`instituteID`,`categoty`,`subCategory`,`trainerName`,`description`,`image1`,`image2`,`image3`,
-// `seats`,`duration`,`institute_id`,`category_id`)VALUES (<{id: }>,<{skillName: }>,<{instituteID: }>,<{categoty: }>,<{subCategory: }>,<{trainerName: }>, <{description: }>,<{image1: }>,
-// <{image2: }>,<{image3: }>, <{seats: }>,<{duration: }>,<{institute_id: }>,<{category_id: }>);"
-//module.exports = selectAllInstitutes;
 

@@ -1,0 +1,29 @@
+Dear Shweta,
+
+This is a reminder email for your appointment at <xyz> institute for inquiry regarding <abc> skill Class. Here is your appointment schedule details.
+
+Institute : <abc>
+Address : <abc>
+Phone : <abc>
+email : <abc>
+Skill Class : <abc>
+Date : <abc>
+Time : <abc>
+
+ Happy to help you. Thank you.
+ SkillLocate 
+
+ ************************************************************
+ Hello,
+
+ This is a reminder email for appointment booked by potential customer <first Name> <last Name>. Here is the detail of appointment schedule.
+ First Name :
+ Last Name :
+ email :
+ Phone Number :
+ Skill Class :
+ Date :
+ Time :
+
+ Happy to help you. Thank you.
+ SkillLocate 
