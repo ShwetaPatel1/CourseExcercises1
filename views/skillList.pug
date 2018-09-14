@@ -1,41 +1,18 @@
 extends parentLayout
 block pageScript
     script(src='./javascripts/skillList_client.js')
-    style.
-        li img{
-            width:150px;
-            border: 1px solid black;
-        }
-        .left{
-            float:left;
-        }
-        .right{
-            float:right;
-        }
-        .bar{
-            border: 2px double darkblue;
-            margin: 10px;
-            width: 100%;
-        }
-        search
-        {
-            width:600px;
-        }
-       
+    
 block mainContent
-    .main
+    .mainWrapper
         div
-            h3 List of all Skills
-            div.col-75
-                div.col-75
+            div.searchBar
+                div.col-25
                     input(type="text", name="skillName" onChange="filterSkills()" placeholder="search for categories, skills and trainers of skills")#name
-                div.col-25.left
-                    button(type="submit" onclick="filterSkills()" ) Search
-        br
-        hr.bar
-        #skillOrderedList
-            br
-            h2 Skill Classes to choose from
-            each item in itemList
-               +skillClass(item)
-                  
+                div.col-25(style="padding-left:5px;")
+                    button(type="submit" onclick="filterSkills()") Search
+        div(style="display:flex;")
+            #skillOrderedList
+                h4 Skill Classes to choose from
+                hr.hr1
+                each item in itemList
+                    +skillClass(item)

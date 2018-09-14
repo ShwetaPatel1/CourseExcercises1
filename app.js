@@ -46,7 +46,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/features', (req, res) => {
-  res.render('features', { title: 'Why us?' });
+  res.render('features1', { title: 'Why us?' });
 });
 
 // catch 404 and forward to error handler
@@ -71,5 +71,5 @@ app.use(function (err, req, res, next) {
 // });
 
 //uncomment this line to enable schedule reminder
-//scheduler();
+scheduler();
 module.exports = app;

@@ -1,0 +1,412 @@
+/* RGB */
+$blue: #1180db;
+$yellow: rgb(221, 173, 17);
+$red: rgba(159, 7, 9, 1);
+$green: rgba(91, 188, 30, 1);
+$darkBlue1: rgba(24, 65, 115, 1);
+$font_Color1:#0D0D59;
+$bg_color1:#EFF8E2;
+$bg_color2:#FDFFF7;
+
+$font_1:"Georgia";
+$font_2:"Calibri";
+$font_3: 'Georgia', 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+$font_special:"Fantacy";
+
+$font_size_normal: 16px;
+$font_small: 14px;
+$font_h1: 20px;
+$font_h2: 18px;
+
+$border_radius_normal: 4px;
+$border_solid: 1px solid #ccc;
+
+/*******************************/
+*{
+    color:  $font_Color1;
+    text-rendering: optimizeLegibility;
+ }
+   
+body {
+    font-size: $font_size_normal;
+    font-family: $font_1;
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  p, strong, span, div, ul, li, ol{
+    background-color: transparent;
+    color: inherit;
+  }
+  
+  
+/* Style the submit button */
+button  {
+    background-color:$font_Color1;
+    color: $bg_color1;
+    padding: 12px 20px;
+    border: none;
+    border-radius: $border_radius_normal;
+    cursor: pointer;
+    opacity: 0.8;
+  }
+  
+  button:hover{
+      opacity: 1;
+  }
+
+  
+/* Style inputs, select elements and textareas  and labels*/
+input[type=text], input[type=email], input[type=datetime-local], textarea{
+    width: 90%;
+    padding: 12px;
+    border: $border_solid;
+    border-radius: $border_radius_normal;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+input:invalid+span:after {
+width: 5%;
+content: '✖';
+padding-left: 5px;
+}
+
+input:valid+span:after {
+width: 5%;
+content: '✓';
+padding-left: 5px;
+}
+
+input[type=checkbox]{
+margin-top: 20px;
+margin-bottom: 20px;
+padding: 2px;
+}
+
+label {
+padding: 12px 12px 12px 0;
+display: inline-block;
+}
+
+::placeholder {
+    color: grey;
+    font-size: small;
+    opacity: 0.5; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+color: grey;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+color: grey;
+}
+/****************************Table CSS style*****************************************/
+table {
+    font-family: $font_2;
+    border-collapse: collapse;
+    width: 90%;
+    background-color :$bg_color2;
+    margin-left: auto;
+    margin-right: auto;
+    transition: 0.2s ease-in-out;
+}
+
+table td, table th {
+    border: $border_solid;
+    padding: 2px;
+    min-width: 50px;
+}
+
+table tr:nth-child(even){
+    background-color: $blue;
+}
+
+table tr:hover {
+    background-color: $yellow;
+    color: $font_Color1;
+}
+
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: $yellow;
+    color:$font_Color1;
+}
+  /**********************************Table CSS end********************************/
+
+#featureHeading {
+    font-size: x-large;
+    padding-left: 50px;
+}
+/*********************************/
+
+
+.topBar{
+  position: fixed;
+  top: 0;
+  z-index:1;
+  height: 40px;
+  width: 100%;
+  background-color: $bg_color2;
+  color: $yellow;
+}
+ 
+.menuNav {
+    position: fixed;
+    top: 40px;
+    z-index: 1;
+    width: 100%;
+    height: 45px;
+    background-color: $blue;
+    overflow-x: hidden;
+    padding-left: 20px;
+    box-shadow: 0 5px 5px 4px rgba(128, 128, 128, 0.534);
+}
+
+.menuNav a {
+    float: left;
+    padding: 10px 15px;
+    margin-left: 10px;
+    text-decoration: none;
+    font-size: $font_h2;
+    font-weight: 600;
+    color: $yellow;
+    display: block;
+    background-color: $blue;
+    transition: 0.2s ease-out;
+    font-family: $font_2;
+    font-stretch: expanded;
+}
+
+.menuNav a:hover {
+    color: $blue;
+    background-color: $yellow;
+    transition: 0.3s ease-in;
+    border-radius: $border_radius_normal;
+}
+
+
+@media screen and (max-width: 600px) {
+    .menuNav a:not(:first-child) {display: none;}
+    .menuNav a.icon {
+      float: right;
+      display: block;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .menuNav.responsive {position: relative;}
+    .menuNav.responsive .icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .menuNav.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+}
+.logoDiv
+{
+ position: fixed;
+ top: 5px;
+ right: 10px;
+ background: transparent;
+}
+
+ .logoDiv > img
+ {
+  height: 40px;
+  width: auto;
+  padding: 0px;
+  margin: 0px;
+  border-radius: 8px;
+  transition: 0.3s ease;
+}
+
+.logoDiv > img:hover
+{
+  height: 42px;
+  width: auto;
+  transition: 0.3s ease;
+}
+/**************************************/
+
+.main {
+    margin-top: 90px; 
+    padding: 10px 10px;
+    background-image:  url("../images/design/bg_Vbar.png");
+    background-repeat: repeat-y;
+    background-color: rgb(255, 255, 255);
+    background-position-y: 0%;
+    background-position-x: 0%;
+}
+
+.mainHome
+{
+  margin-top: 120px; 
+  padding: 10px 10px; 
+}
+
+.footerWrapper
+{
+    width: 100%;
+    height: 80px;
+    margin-top: 50px;
+    border-top: 1px dotted rgb(5, 5, 5);
+    background-image: url("../images/design/footer_colorBlock.png");
+    background-repeat: repeat-x;
+    background-color: $font_Color1;
+    color: $bg_color1;
+    background-position-y: 45px;
+    background-position-x: 0%;
+}
+
+/****************************************************************/
+
+.featureDiv
+{
+  width: 70%;
+  text-align: left;
+  background-color: white;
+  height: 100px;
+  margin-bottom: 25px;
+  border-top: 0.5px solid $yellow;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 2px 5px 5px 0 rgba(128, 128, 128, 0.534);
+  transition: .5s ease;
+  
+}
+
+.featureDiv:hover
+{
+  background-color: ghostwhite;
+  border-top: 0.5px solid $blue;
+  transition: .5s ease;
+}
+
+.featureDiv > img
+{
+  float: left;
+  height: 100px;
+  width: auto;
+  margin-right: 20px;
+}
+
+.featureDiv ~ p{
+   margin-left: 20px;
+   padding-left: 20px;
+}
+
+.featureLable
+{
+  float: right;
+  position: fixed;
+  top: 100px;
+  right: 100px;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  font-size: 35pt;
+  font-family: fantasy;
+}
+
+
+/******************************************************************************************************/
+
+/*********************************home page css***************************************/
+.container {
+    position: relative;
+    width: 80%;
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+  }
+  
+  .image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  .overlayTop {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    /* background-color: rgb(254,181,44); */
+  /*  background: radial-gradient(black, grey, black) ; */
+    background: radial-gradient(rgb(254, 222, 45),rgb(254, 222, 45),rgb(70,70,70)) ;
+    opacity:0.7;
+    overflow: hidden;
+    width: 100%;
+    height:0;
+    transition: .8s ease;
+  }
+  
+  .container:hover .overlayTop {
+    bottom: 50%;
+    height: 50%;
+  }
+  
+  .textTop{
+    color: black;
+    font-weight: bold;
+    font-size: 16pt;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .textTop span
+  {
+    color: white;
+    font-size: 22pt;
+  }
+  
+  .overlayBottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: radial-gradient($darkBlue1, $blue) ;
+    opacity: 0.6;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .8s ease;
+    border: 1px dotted white;
+  }
+  
+  .container:hover .overlayBottom {
+    height: 50%;
+  }
+  
+  .textBottom {
+    color: white;
+    font-size: 30pt;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .textBottom > span
+  {
+    color: white;
+    font-size: 35pt;
+  }
+  
+  

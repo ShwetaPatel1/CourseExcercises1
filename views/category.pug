@@ -1,14 +1,11 @@
 extends parentLayout
+block pageScript
+    script(src='./javascripts/skillList_client.js')
 block mainContent
     title=title
     .mainHome
-        #categoryList
+        #categoryList1
                 h3 List of All Categories
-                div
-                    table
-                        tr
-                            th ID
-                            th Category Name
-                            th Select
-                            each categoryItem in categoryList
-                                +categoryRow(categoryItem)
+                ul
+                    each categoryItem in categoryList
+                        li.list #{categoryItem.name}

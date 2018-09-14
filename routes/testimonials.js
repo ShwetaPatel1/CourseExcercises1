@@ -25,22 +25,23 @@ const dbFindAllIn = function (dbName, collectionName) {
 router.get('/', function (req, res, next) {
 
 
-	// const MongoClient = require('mongodb').MongoClient;
-	// const url = 'mongodb://localhost:27017';
+	const MongoClient = require('mongodb').MongoClient;
+	const url = 'mongodb://localhost:27017';
 
-	// MongoClient.connect(url, function(err, client) {
-	// 	const db = client.db('comics');
-	// 	const collection = db.collection('superheroes');
+	MongoClient.connect(url, function (err, client) {
+		const db = client.db('skillLocate');
+		const collection = db.collection('testimonials');
 
-	// 	collection.find({}).toArray((error, documents) => {
-	// 		console.log(documents);
-	// 		client.close();
-	// 	});
-	//});
+		collection.find({}).toArray((error, documents) => {
+			console.log(documents);
+			client.close();
+			res.render('testimonials', { title: 'Testimonials', docList: documents });
+		});
+	});
 
-	var docList = dbFindAllIn('comics', 'superheroes');
-	console.log(docList);
-	res.render('testimonials', { title: 'Database trials', docList: docList });
+	//var docList = dbFindAllIn('skillLocate', 'testimonials');
+	//console.log(docList);
+	//res.render('testimonials', { title: 'Testimonials', docList: docList });
 
 });
 

@@ -14,7 +14,7 @@ router.get('/', function (req, res, next) {
     });
 
     skillClass.selectAll(function (skillList) {
-        res.render('skillList', { itemList: skillList });
+        res.render('skillList', { title: "Get an appointment", itemList: skillList });
         res.end();
     });
 

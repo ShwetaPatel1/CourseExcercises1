@@ -1,0 +1,11 @@
+{    fname : "Sandy",
+    lName : "Williams",
+    review : "Thanks SkillLocate. I could get my favourite part time job as gym trainer because of this platform. ",
+    image : "/images/users/userAvatar2.jpg" }
+
+*****************************
+{    fname : "Shane",
+    lName : "Blundon",
+    userType : "Material Supplier",
+    review : "Before using skillLocate, I used to send quotations to many potential customers, but only 20% of them used to reply me back. But now my life has become easy. Book an appointment, send quotations and samples and discuss the deal. As easy as that.",
+    image : "/images/users/userAvatar2.jpg" }

@@ -2,23 +2,28 @@ extends parentLayout
 block pageScript
     script(src='/javascripts/skillList_client.js')
     script.
-          var d_min = new Date();
-          var d_max = new Date();
-          d_min.setDate(d_min.getDate() + 1);
-          d_max.setDate(d_min.getDate() + 30);
-
+         
           document.onload = function(){
+
+            var d_min = new Date();
+            var d_max = new Date();
+            d_min.setDate(d_min.getDate() + 1);
+            d_max.setDate(d_min.getDate() + 30);
+
             var date = new Date();
             var day = date.getDate() + 1; //tomorrow's date
             var month = date.getMonth() + 1;
             var year = date.getFullYear();
+            
 
             if (month < 10) month = "0" + month;
             if (day < 10) day = "0" + day;
-
-            var today = year + "-" + month + "-" + day;       
+            //2018-09-14T18:30
+            var today = year + "-" + month + "-" + day+ "T09:30";       
             document.getElementById("dateTime").value = today;
-                      }
+            document.getElementById("dateTime").min = d_min;
+            document.getElementById("dateTime").max = d_max;
+          }
     style.
     head
       title=title
@@ -72,40 +77,44 @@ block mainContent
             p City : #{skillClass[0].city}, #{skillClass[0].province}, #{skillClass[0].country}
             p Phone Number : #{skillClass[0].phone}
         div(style='width:100%')
-          button(type='button', onclick='openForm()') Get an Appointment
+          button(type='button', onclick='openForm()' id="btn1") Get an Appointment
+          br
+    div.imgBgSkills( style="display:none")
+      #form_container(class="appointmentForm")
+        form(action='', name="appointmentForm")
+          h1 Appointment Form
+          .row
+            .col-25  First Name :
+            .col-75
+              input(type='text', name='firstName', placeholder='first name', required='')
+          .row
+            .col-25 Last Name :
+            .col-75
+              input(type='text', name='lastName', placeholder='Last name', required='')
+          .row
+            .col-25 Phone Number :
+            .col-75
+              input(type='text', name='phone', placeholder='phone number', required='')
+          .row
+            .col-25 email :
+            .col-75
+              input(type='text', name='email', placeholder='email', required='')
+          .row
+            .col-25  Date :
+            .col-75
+              input(type='datetime-local', name="dateTime",id="dateTime", required)
+              span(class="validity")
+          .row
+            |  Do you want us to remind you by an emial for this appointment before one day?
 
-    #form_container(style="display:none")
-      form(action='', name="appointmentForm")
-        h1 Appointment Form
-        .row
-          .col-25  First Name :
-          .col-75
-            input(type='text', name='firstName', placeholder='first name', required='')
-        .row
-          .col-25 Last Name :
-          .col-75
-            input(type='text', name='lastName', placeholder='Last name', required='')
-        .row
-          .col-25 Phone Number :
-          .col-75
-            input(type='text', name='phone', placeholder='phone number', required='')
-        .row
-          .col-25 email :
-          .col-75
-            input(type='text', name='email', placeholder='email', required='')
-        .row
-          .col-25  Date :
-          .col-75
-            input(type='datetime-local', name="dateTime", min=d_min, max=d_max, onChange='showTime(event)', required)
-            span(class="validity")
-        .row
-          |  Do you want us to remind you by an emial for this appointment before one day?
-
-          input(type='checkbox', name='remind' checked)
-        .row
-          .col-25
-            label(for='subject') Subject
-          .col-75
-            textarea#subject(name='subject', placeholder='Write something..', style='height:200px')
-        .row
-          button(type='button', name='submit', onClick="bookAppointment()" ) Book Appointment
+            input(type='checkbox', name='remind' checked)
+          .row
+            .col-25
+              label(for='subject') Subject
+            .col-75
+              textarea#subject(name='subject', placeholder='Write something..', style='height:200px')
+          .row
+            .col-25
+              button(type='button', name='submit', onClick="bookAppointment()" ) Book Appointment
+            .col-25
+              button(type='reset', name='reset') Reset

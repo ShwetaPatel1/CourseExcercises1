@@ -1,266 +1,265 @@
-* {
-  
-  /*font-family: 'FaktSoftPro',sans-serif; */
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  color:  #537a94;
-  text-rendering: optimizeLegibility;
-  font-size: large;
-  
-  }
-  
-
-  p, strong, span, div, ul, li, ol{
-    background-color: transparent;
-  }
-
-  #featureHeading {
-    font-size: x-large;
-    padding-left: 50px;
-  }
-  
-/* rgb(221, 173, 17) - yellow
-  rgb(11, 11, 11) - blue
-  white */
-
-  span,strong
-  {
-    background-color: transparent;
-  }
-  
-  ::placeholder {
-    color: grey;
-    opacity: 0.5; /* Firefox */
-  }
-  
-  :-ms-input-placeholder { /* Internet Explorer 10-11 */
-   color: grey;
-  }
-  
-  ::-ms-input-placeholder { /* Microsoft Edge */
-   color: grey;
-  }
-
-   
-  .menuNav_old {
-    width: 100%;
-    height: 60px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color:rgb(241, 188, 12);
-    overflow-x: hidden;
-    padding-left: 20px;
-   /* border-bottom: 2px double blue ; */
-    
-}
-  
-  .menuNav {
-    width: 100%;
-    height: 45px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color:#1180db;
-    overflow-x: hidden;
-    padding-left: 20px;
-    box-shadow: 0 5px 5px 0 rgba(128, 128, 128, 0.534);
-    /* border-bottom: 2px double blue ; */
-    
+a{
+  color: rgb(3, 86, 119);
+  font-family: calibri;
 }
 
-.menuNav a {
-    float: left;
-    padding: 10px 15px;
-    margin-left: 10px;
-    text-decoration: none;
-    font-size: 20px;
-    color: rgb(254,181,44);
-    display: block;
-    background-color: #1180db;
-    transition: 0.2s ease-out;
+/****************************************************************************************/
 
-}
-
-.menuNav a:hover {
-    color:rgb(0,98,199);
-    background-color: rgb(254,181,44);
-    transition: 0.3s ease-in;
-    border-radius: 8px;
-}
-
-
-.logoDiv
-{
- position: fixed;
- top: 15px;
- right: 10px;
- background: transparent;
-/* box-shadow: 0 8px 8px 0 rgba(221, 224, 18, 0.4);   */
-
-}
- .logoDiv > img
- {
-  height: 40px;
-  width: auto;
-  padding: 0px;
-  margin: 0px;
-  border-radius: 8px;
-  transition: 0.4s ease;
-}
-
-.logoDiv > img:hover
-{
-  height: 45px;
-  width: auto;
-  transition: 0.4s ease;
-}
-
-.main {
-    margin-top: 70px; /* Same as the width of the menuNav */
-    padding: 10px 10px;
-    background-image:  url("../images/bg_Vbar.png");
-    background-repeat: repeat-y;
-    background-color: rgb(255, 255, 255);
-    background-position-y: 0%;
-    background-position-x: 0%;
-}
-
-.mainHome
-{
-  margin-top: 70px; /* Same as the width of the menuNav */
-  padding: 10px 10px; 
-}
-
-@media screen and (max-height: 450px) {
-    .menuNav {padding-top: 15px;}
-    .menuNav a {font-size: 18px;}
-}
-
-/****************************************************************/
-
-.featureDiv
-{
-  width: 70%;
-  text-align: left;
-  background-color: white;
-  height: 100px;
-  margin-top: 30px;
-  border-top: 0.5px solid rgb(241, 220, 23);
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 5px 5px 0 rgba(128, 128, 128, 0.534);
-  transition: .5s ease;
-  
-}
-
-.featureDiv:hover
-{
-  background-color: ghostwhite;
-  border-top: 0.5px solid rgb(59, 190, 241);
-  margin-left:60px;
-  transition: .5s ease;
-}
-
-.featureDiv > img
-{
+/***********************************skillList page CSS ***************************/
+.anchorBlock{
   float: left;
-  height: 100px;
-  width: auto;
-  margin-right: 20px;
-}
-
-.featureDiv ~ p{
-   margin-left: 20px;
-   padding-left: 20px;
-}
-
-/******************************************************************************************************/
-.footerWrapper
-{
-    width: 100%;
-    height: 300px;
-    border-top: 1px dotted rgb(5, 5, 5);
-    background-image: url("../images/footer_colorBlock.png");
-    background-repeat: repeat-x;
-    background-color: rgb(255, 255, 255);
-    background-position-y: 30px;
-    background-position-x: 0%;
-}
-
-/*********************************home page css***************************************/
-.container {
-  position: relative;
-  width: 80%;
-  height: 500px;
-  margin-left: auto;
-  margin-right: auto;
-  overflow: hidden;
-}
-
-.image {
+  padding: 8px 15px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  color: rgb(254,181,44);
   display: block;
-  width: 100%;
-  height: auto;
+  background-color: #1180db;
+  opacity:0.8;
+  transition: 0.2s ease-out;
+  font-family: "calibri";
+  font-stretch: expanded;
 }
-
-.overlayTop {
-  position: absolute;
-  bottom: 100%;
-  left: 0;
-  right: 0;
-  background-color: rgb(254,181,44);
+.anchorBlock:hover{
+  opacity: 1;
+}
+/**********************************Skill Class Item DIV*************************/
+.skillItem{
+  display: inline-block;
+  width:200px;
+  min-height: 400px;
+  padding:20px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 1px #aaa;
+  font-family: calibri;
+  margin: 10px;
+  background: white;
+}
+.skillItem:hover
+{
+  background: rgb(248, 245, 245);
+  transition: ease;
+}
+.skillItem hr
+{
+  width: 50px;
+  float: left;
+  border: 2px solid darkblue;
   opacity:0.6;
-  overflow: hidden;
-  width: 100%;
-  height:0;
-  transition: .8s ease;
+}
+.skillItem hr:hover{
+  border: 2px solid blue;
+  opacity:1;
+}
+.skillItem img{
+  flex-shrink:0;
+  -webkit-flex-shrink: 0;
+  width:96%;
+  max-height:98%;
+  border: 4px solid white;
 }
 
-.container:hover .overlayTop {
-  bottom: 50%;
-  height: 50%;
+.skillImgContainer {
+  width: 200px;
+  height: 120px;
+  border: 0.5px solid #ccdcf5;
+
+}
+/********************slide show on appointment page******************************/
+
+.imgBox{
+  width: 400px;
+  height: 300px;
+  overflow:hidden;
+}
+/* Slideshow container */
+.slideshow-container1 {
+  max-width: 400px;
+  position: relative;
+  margin-right: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+
+}
+.skillItem-Container{
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 10px;
+  width: 97%;
+  padding: 20px;
+  max-height : 500px;
+  box-shadow: -4px 4px 5px 2px #ccc;
+}
+.slideshow-container {
+  width : auto;
+  margin-right : 10px;
+  padding: 20px;
+  border: 1px solid #aaa;
+}
+/* Hide the images by default */
+.mySlides {
+    display:block;
 }
 
-.textTop {
-  color: rgb(4, 56, 77);
-  font-size: 30pt;
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  text-align: center;
+  top: 40%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: rgb(221, 173, 17);
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 8px 3px 0;
+  background-color:#032a49;
 }
 
-.overlayBottom {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+/* Position the "next button" to the right */
+.next {
   right: 0;
-  background-color: rgb(0,98,199);
-  opacity: 0.5;
-  overflow: hidden;
-  width: 100%;
-  height: 0;
-  transition: .8s ease;
-  border: 1px dotted white;
+  border-radius: 3px 0 0 3px;
+}
+.prev{
+  left:0;
 }
 
-.container:hover .overlayBottom {
-  height: 50%;
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color:#0861aa;
 }
 
-.text {
-  color: white;
-  font-size: 30pt;
+/* Caption text */
+
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  text-align: center;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #0861aa;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #032a49;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .5} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .5} 
+  to {opacity: 1}
+}
+/***********************************************************************/
+
+/* skill -details div*/
+.skill-details
+{
+  width: 60%;
+  margin-left: 10px;
+  padding: 20px;
+  border: 1px solid #aaa;
+}
+.skill-details-left{
+  display: inline-block;
+  width: 45%;
+  border-right: 2px solid #032a49;
+  padding: 10px;
+}
+.skill-details-right{
+  display: inline-block;
+  width: auto;
+  padding-left: 30px;
+}
+/************************************************/
+
+/**********************************Appointment Form*******************************/
+/* Style the container */
+.appointmentForm{
+  width: 600px;
+  margin: auto;
+  border-radius: 5px;
+  background-color: #f8f8f8;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+form h1{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Floating column for labels: 25% width */
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+/* Floating column for inputs: 75% width */
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+/***************************CAtegories and Institutes*************/
+
+#categoryList, #instituteList
+{
+    display: block; 
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 20px;
+    width: 60%; 
+    max-width: 80%; 
+    height: auto;
+    padding:30px;
+    border: 0.5px solid grey;
+    border-radius: 5px;
+    box-shadow: 4px 4px 6px 2px #ddd;
+    text-align: center;
 }

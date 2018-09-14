@@ -1,7 +1,18 @@
 extends parentLayout
+block pageScript
+    
 block mainContent
     div 
         h1=title
-        each item in docList
-            .skillItem
-                h3= item.name
+        div.upperHalf.imgBgTestimonials
+        .wrapper
+            each item in docList
+                - var imgPath = item.image
+                .testimonialItem
+                    .image-wrapper
+                        img(src=imgPath, alt='')
+                    .userName
+                        h4 #{item.fname}  #{item.lName}
+                    hr.hr1
+                    p  "#{item.review}.."
+                    

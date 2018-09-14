@@ -15,14 +15,16 @@ function showInstituteList() {
 
 //Ajax used for filtering the skills
 function filterSkills() {
-    var xhttp = new XMLHttpRequest();
     var str = document.getElementById("name").value.trim();
+    searchSkills(str);
+}
+
+function searchSkills(str) {
     if (str == '') {
         document.getElementById("name").value = '';
-        xhttp.open("GET", "/skillList", true);
-        xhttp.send();
     }
     else {
+        var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 document.getElementById("skillOrderedList").innerHTML = this.responseText;
@@ -75,8 +77,8 @@ function loadCategories() {
 
 /*********************************Javascript for appointment.pug *******************/
 function openForm() {
-    document.getElementById("form_container").style.display = "block";
-    document.getElementsByClassName("skillItem-Container").style.display = "none";
+    document.getElementsByClassName("imgBgSkills")[0].style.display = "block";
+    window.location.href = "#btn1";
 }
 
 function bookAppointment() {
@@ -120,23 +122,24 @@ function bookAppointment() {
 
     //Ajax request - POST req to same page with JSON passed in (prevent go back)
     var params = "skillId=" + skillId + "&firstName=" + firstName + "&lastName=" + lastName + "&phone=" + phone + "&email=" + email +
-        "&date=" + getDatePart(appointmentDate) + "&time=" + getTimePart(appointmentDate) + "&reminder=" + remind + "&subject=" + subjectText;
-    alert(params);
+        "&date=" + getDatePart(appointmentDate) + "&time=" + getTimePart(appointmentDate) + "&reminder=" + remind + "&subject=" + subjectText + "&reminderDate=" + getReminderDatePart(appointmentDate);
 
     postAjax('/appointment', params, function (message) {
+        //hide the form and display the acknowledgment message
+
         if (message != "") {
             closeForm();
             var para = document.createElement("P");
             var t = document.createTextNode(message);
             para.appendChild(t);
             document.getElementsByClassName("mainHome")[0].appendChild(para);
+            alert(message);
         }
         else {
             alert("Could not book an appointment for this time. Please retry");
         }
     });
 
-    //hide the form and display the acknowledgment message
 
     //send an email for confirmation
 }
@@ -159,7 +162,7 @@ function postAjax(url, data, success) {
 
 function getDatePart(strDate) {
     var date = new Date(strDate);
-    var day = date.getDate(); //tomorrow's date
+    var day = date.getDate();
     var month = date.getMonth() + 1;
     var year = date.getFullYear();
 
@@ -169,6 +172,19 @@ function getDatePart(strDate) {
     var datePart = year + "-" + month + "-" + day;
     return datePart;
 }
+function getReminderDatePart(strDate) {
+    var date = new Date(strDate);
+    var day = date.getDate() - 1;
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear();
+
+    if (month < 10) month = "0" + month;
+    if (day < 10) day = "0" + day;
+
+    var datePart = year + "-" + month + "-" + day;
+    return datePart;
+}
+
 
 function getTimePart(strDate) {
     var date = new Date(strDate);
@@ -231,10 +247,16 @@ function showSlides(n) {
     slides[slideIndex - 1].style.display = "block";
     dots[slideIndex - 1].className += " active";
 }
+//extra functions....
 function showTime(e) {
-    //alert(e.target.value);
-    var d = e.target.value;
-    alert(d.getTime());
-    alert(d.getDate());
+    alert(e.target.value);
+
+}
+//Category click
+function getSkillClass(e) {
+    var str = e.target.textContent;
+    // alert(str);
+    // window.location.href = "/skillList";
+    // searchSkills(str.trim());
 
 }
