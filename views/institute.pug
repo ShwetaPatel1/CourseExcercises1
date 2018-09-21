@@ -8,37 +8,25 @@ block pageScript
       #formContainer {
       z-index: 1;
       width: 700px;
-      height: 500px;
+      height: auto;
       vertical-align: middle;
       margin-left: auto;
       margin-right: auto;
       padding: 30px;
-      border: 0.5px solid yellow;
-      box-shadow: 0 8px 8px 0 rgba(221, 224, 18, 0.6);
+      border: 0.5px solid grey;
+      border-radius: 5px;
+      box-shadow: 4px 4px 6px 2px #ddd;
       }
       #formContainer h1 {
       text-align: center;
       color: darkBlue;
       }
       input[type="text"] {
-      width: 100%;
       margin-bottom: 20px;
-      height: 25px;
-      border-radius: 4px;
-      }
-      button {
-      width: 100px;
-      height: 30px;
-      display: block;
-      margin-top: 10px;
       }
 block mainContent
-  .mainHome
-    div
-      div.left
-        h3 Registered Institutes
-      br
-      hr.bar
+  .mainWrapper
+    div.upperHalf.imgBgInstitute
     #instituteList
       h3 List of All Institutes
       div

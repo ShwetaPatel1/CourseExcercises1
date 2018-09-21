@@ -16,9 +16,8 @@ const emailJson = {
   time: "10:30 AM"
 };
 const sendReminder = function () {
-  // let startTime = new Date(Date.now() + 5000);
-  // let endTime = new Date(startTime.getTime() + 2000);
-  var j = schedule.scheduleJob('10 30 19 * * 0-5', function () {
+  //scheduleJob(sec, min, hour, day of month (1 - 31), month, day of week (0 - 6))
+  var j = schedule.scheduleJob('10 26 17 * * 0-6', function () {
 
     console.log('Sending reminder emails to users');
 

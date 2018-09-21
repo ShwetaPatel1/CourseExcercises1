@@ -203,7 +203,11 @@ const validEmail = function (email) {
 
 
 const dateTimeValidationMessage = function (strDate) {
+    let today = new Date();
     let d = new Date(strDate);
+    if (d <= today) {
+        return "Oops... you selected past date for appointment."
+    }
     let day = d.getDay();
     if (day == 0 || day == 6) {
         return "Appointments are not available during weekends.";
